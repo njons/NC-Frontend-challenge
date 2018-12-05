@@ -3,23 +3,39 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style/reset.css">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/main.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natural Cycles: Frontend challenge</title>
   </head>
   <body>
     <header>
-      <h1>Natural cycels frontend test</h1>
+      <h1>Natural cycles frontend test</h1>
     </header>
 
     <div class="container">
-
+      <!-- INPUT -->
       <section class="input">
+        <div class="badge"><h2>1</h2></div>
+        <h2>Input here:</h2>
+        <div class="flex-row ">
+          <input id="input__text" class="font reg" type="text" placeholder="Type text here..." autocomplete="off" autofocus>
+          <button id="clear" class="font reg">Clear all</button>
+        </div>
 
       </section>
+
+      <!-- OUTPUT -->
       <section class="output">
-        
+        <div class="badge"><h2>2</h2></div>
+        <h2>Output here (in the form of a fake button why not?):</h2>
+        <div id="output__div">
+          <p id="output__text" class="font reg"></p>
+        </div>
+        <div id="slider__container" class="flex-column">
+          <h2>Set the button size with the slider</h2>
+          <input id="slider" type="range" value="0.5" name="slider"  step="0.1" min="0.5" max="1.0" list="tickmarks">
+        </div>
       </section>
     </div>
 
