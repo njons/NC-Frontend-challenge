@@ -27,16 +27,17 @@ const setOutputDivWidth = sliderValue => {
 
 const fitText = outputDiv => {
   console.log("you have reached fitText");
-  // use value from slide to calculate the width outputDiv
-
-  console.log(
-    "this is the clientWidth of the text element :",
-    outputText.clientWidth
-  );
+  let outputDivWidth = getFromLocalStorage("outputDivWidth") - 20;
+  let outputTextWidth = outputText.clientWidth + 50;
+  // let fontSize = 50;
 
   console.log(
     "this is the clientWidth of the button element :",
-    outputDiv.clientWidth
+    outputDivWidth
+  );
+  console.log(
+    "this is the clientWidth of the text element :",
+    outputText.clientWidth + 50
   );
 
   console.log(
