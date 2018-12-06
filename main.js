@@ -1,5 +1,5 @@
 console.log("this is main.js");
-const inputDiv = document.querySelector("#input__text");
+const inputText = document.querySelector("#input__text");
 const outputDiv = document.querySelector("#output__div");
 const outputText = document.querySelector("#output__text");
 const slider = document.querySelector("#slider");
@@ -117,9 +117,9 @@ slider.addEventListener("change", event => {
   fitText(outputDiv);
 });
 
-inputDiv.addEventListener("keyup", event => {
+inputText.addEventListener("keyup", event => {
   console.log("you have keyed up");
-  let text = inputDiv.value;
+  let text = inputText.value;
   console.log("this is text:", text);
   outputText.textContent = text;
   saveToLocalStorage("input", text);
@@ -137,8 +137,8 @@ clear.addEventListener("click", event => {
 
   // clear all inputs
   outputText.textContent = "";
-  inputDiv.value = "";
-  inputDiv.placeholder = "Type text here...";
+  inputText.value = "";
+  inputText.placeholder = "Type text here...";
 
   // clear all info stored in loal storage
   saveToLocalStorage("input", "");

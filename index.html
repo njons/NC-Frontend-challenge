@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/generic.css">
     <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="./style/small-styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natural Cycles: Frontend challenge</title>
@@ -21,7 +23,7 @@
             <div class="badge"><h2>1</h2></div>
             <h2  class="input margin">Input here:</h2>
           </div>
-          <div class="flex-row margin">
+          <div id="input__div" class="flex-row margin">
               <input id="input__text" class="font reg" type="text" placeholder="Type text here..." autocomplete="off" autofocus>
               <button id="clear" class="font bold">Clear all</button>
           </div>
@@ -33,13 +35,13 @@
         <div class="flex-column">
           <div class="flex-row center margin">
             <div class="badge"><h2>2</h2></div>
-            <h2 class="output margin">Output here (in the form of a fake button why not?):</h2>
+            <h2 class="output margin">Output here:</h2>
           </div>
           <div id="output__div">
             <p id="output__text" class="font reg"></p>
           </div>
           <div id="slider__div" class="margin">
-            <h2 class="output">Set the button size with the slider</h2>
+            <h2 class="output">Adjust button size</h2>
             <div class="flex-column">
               <input id="slider" type="range" value="0.5" name="slider"  step="0.1" min="0.5" max="1.0" list="tickmarks">
               <datalist id="tickmarks">
