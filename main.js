@@ -12,7 +12,7 @@ const saveToLocalStorage = (id, value) => {
 
 //get the saved value function
 const getFromLocalStorage = key => {
-  // console.log("this is key:", key);
+  console.log("this is key:", key);
   if (localStorage.getItem(key) === null) {
     return ""; // You can change this to your defualt value.
   }
@@ -98,15 +98,27 @@ window.addEventListener("resize", event => {
 
 // if avaliable, get and apply the stored values on load
 window.addEventListener("load", event => {
-  if (!getFromLocalStorage("sliderValue") === "") {
+  console.log("you reloaded the page");
+  console.log(!getFromLocalStorage("sliderValue") === "");
+
+  if (getFromLocalStorage("sliderValue") === "") {
+    console.log("its false!");
+    slider.value = 0.5;
+    setOutputDivWidth(slider.value);
+    fitText(outputDiv);
+  } else {
     slider.value = getFromLocalStorage("sliderValue");
+    console.log("this is the sliderValue:", getFromLocalStorage("sliderValue"));
     outputDiv.style.width = getFromLocalStorage("outputDivWidth") + "px";
+    console.log(
+      "this is the soutputDivWidth:",
+      getFromLocalStorage("outputDivWidth")
+    );
     outputText.textContent = getFromLocalStorage("input");
+    console.log("this is the input:", getFromLocalStorage("input"));
     outputText.style.fontSize = getFromLocalStorage("fontSize") + "px";
+    console.log("this is the fontSize:", getFromLocalStorage("fontSize"));
   }
-  slider.value = 0.5;
-  setOutputDivWidth(slider.value);
-  fitText(outputDiv);
 });
 
 slider.addEventListener("change", event => {
