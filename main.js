@@ -41,6 +41,7 @@ const setOutputDivWidth = sliderValue => {
   console.log("this is the calcWidth value:", calcWidth);
   let outputDivWidth = calcWidth;
   outputDiv.style.width = outputDivWidth + "px";
+  saveToLocalStorage("outputDivWidth", outputDivWidth);
   // outputDiv.style.width = calcWidth - 173 + "px";
 };
 
