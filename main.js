@@ -48,7 +48,7 @@ const fitText = outputDiv => {
 
   console.log(
     "this is the clientWidth of the button element :",
-    outputDivWidth.clientWidth
+    outputDivWidth
   );
   console.log(
     "this is the clientWidth of the text element :",
@@ -94,6 +94,7 @@ inputDiv.addEventListener("keyup", event => {
   let text = inputDiv.value;
   console.log("this is text:", text);
   outputText.textContent = text;
+  setOutputDivWidth(slider.value);
   // use text input to calculate the width of the output text
   fitText(outputDiv);
 });
