@@ -4,6 +4,7 @@ const outputDiv = document.querySelector("#output__div");
 const outputText = document.querySelector("#output__text");
 const slider = document.querySelector("#slider");
 
+// use window width and the value from slide to convert vw into px
 const convertVwToPx = vw => {
   console.log("you have reached convertVwToPx");
   // const container = document.querySelector("#output__container");
@@ -15,6 +16,7 @@ const convertVwToPx = vw => {
   return windowWidth * vw;
 };
 
+// use value from slide to calculate the width outputDiv
 const setOutputDivWidth = sliderValue => {
   console.log("you have reached setOutputDivWidth");
   console.log("this is the slider value:", sliderValue);
