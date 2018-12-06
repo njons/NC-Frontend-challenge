@@ -37,7 +37,10 @@ const setOutputDivWidth = sliderValue => {
   console.log("this is the slider value:", sliderValue);
   let calcWidth = convertVwToPx(100 * sliderValue);
   console.log("this is the calcWidth value:", calcWidth);
-  outputDiv.style.width = calcWidth - 173 + "px";
+  console.log("this is the calcWidth value:", calcWidth);
+  let outputDivWidth = calcWidth;
+  outputDiv.style.width = outputDivWidth + "px";
+  // outputDiv.style.width = calcWidth - 173 + "px";
 };
 
 const fitText = outputDiv => {
