@@ -73,6 +73,8 @@ const fitText = outputDiv => {
     currFontSize = (currFontSize * difference).toFixed(3);
     console.log("this is currFontSize after manipulation:", currFontSize);
     outputText.style.fontSize = currFontSize + "px";
+    // save current font size in local storage
+    saveToLocalStorage("fontSize", currFontSize);
     if (currFontSize > 50) {
       // check if the output div is bigger than the text
       outputText.style.fontSize = "50px";
@@ -97,6 +99,7 @@ window.addEventListener("resize", event => {
 slider.addEventListener("change", event => {
   console.log("you have changed the slider");
   let sliderValue = slider.value;
+  saveToLocalStorage("sliderValue", sliderValue);
   setOutputDivWidth(sliderValue);
   fitText(outputDiv);
 });
@@ -106,7 +109,16 @@ inputDiv.addEventListener("keyup", event => {
   let text = inputDiv.value;
   console.log("this is text:", text);
   outputText.textContent = text;
+  saveToLocalStorage("input", text);
   setOutputDivWidth(slider.value);
   // use text input to calculate the width of the output text
   fitText(outputDiv);
+});
+
+// if avaliable, get and apply the stored values on load
+window.addEventListener("load", event => {
+  slider.value = getFromLocalStorage("sliderValue");
+  outputDiv.style.width = getFromLocalStorage("outputDivWidth") + "px";
+  outputText.textContent = getFromLocalStorage("input");
+  outputText.style.fontSize = getFromLocalStorage("fontSize") + "px";
 });
