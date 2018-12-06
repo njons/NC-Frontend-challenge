@@ -4,6 +4,21 @@ const outputDiv = document.querySelector("#output__div");
 const outputText = document.querySelector("#output__text");
 const slider = document.querySelector("#slider");
 
+// store values in local storage
+const saveToLocalStorage = (id, value) => {
+  // console.log("you're in save to local");
+  return localStorage.setItem(id, value);
+};
+
+//get the saved value function
+const getFromLocalStorage = key => {
+  // console.log("this is key:", key);
+  if (localStorage.getItem(key) === null) {
+    return ""; // You can change this to your defualt value.
+  }
+  return localStorage.getItem(key);
+};
+
 // use window width and the value from slide to convert vw into px
 const convertVwToPx = vw => {
   console.log("you have reached convertVwToPx");
@@ -27,7 +42,7 @@ const setOutputDivWidth = sliderValue => {
 
 const fitText = outputDiv => {
   console.log("you have reached fitText");
-  let outputDivWidth = outputText.clientWidth;
+  let outputDivWidth = getFromLocalStorage("outputDivWidth") - 20;
   let outputTextWidth = outputText.clientWidth + 50;
   // let fontSize = 50;
 
@@ -40,13 +55,20 @@ const fitText = outputDiv => {
     outputText.clientWidth + 50
   );
 
-  console.log(
-    "this is the getBoundingClientRect of the button element :",
-    outputDiv.getBoundingClientRect().width
-  );
-
   let difference = (outputDivWidth / outputTextWidth).toFixed(3);
   // console.log("this is the difference:", difference);
+
+  if (difference) {
+    console.log("the text should be smaller");
+    let currFontSize = parseFloat(
+      window.getComputedStyle(outputText, null).getPropertyValue("font-size")
+    );
+    console.log("this is the currFontSize before manipulation:", currFontSize);
+    // fontSize = currFontSize;
+    currFontSize = (currFontSize * difference).toFixed(3);
+    console.log("this is currFontSize after manipulation:", currFontSize);
+    outputText.style.fontSize = currFontSize + "px";
+  }
 };
 
 slider.addEventListener("change", event => {
