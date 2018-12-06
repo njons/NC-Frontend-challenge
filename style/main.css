@@ -1,3 +1,47 @@
+/* GENERIC STYLES  */
 body {
   background-color: yellow;
+  -webkit-font-smoothing: antialiased;
+  padding: 20px 20px 0 20px;
+  height: calc(100vh - 40px);
+  font-size: 14px;
+}
+
+.font {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #333;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+.bold {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.reg {
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+#output__div {
+  height: 50px;
+  width: calc(100% - 20%);
+  border: solid 3px red;
+  border-radius: 50px;
+  margin: 50px 0;
+  display: flex;
+  box-shadow: 5px 5px #333;
+  transition: all 0.2s ease-in-out;
+}
+
+#output__text {
+  display: inline-block;
+  color: red;
+  font-size: 50px;
+  line-height: 1;
+  white-space: nowrap;
+  margin: auto;
+  overflow: visible;
 }
