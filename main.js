@@ -22,13 +22,14 @@ const getFromLocalStorage = key => {
 // use window width and the value from slide to convert vw into px
 const convertVwToPx = vw => {
   console.log("you have reached convertVwToPx");
-  // const container = document.querySelector("#output__container");
   console.log("this is the vw coming in :", vw);
-  console.log("this is the window.innerWidth:", window.innerWidth);
-  let windowWidth = (window.innerWidth * 0.01).toFixed(3);
-  console.log("this is the window width:", windowWidth);
-  console.log("this is the window width * vw:", windowWidth * vw);
-  return windowWidth * vw;
+  // console.log("this is the window.innerWidth:", window.innerWidth);
+  // deduct 45px to compensate for the 2 x 20px margin and 5px box shadow on button
+  let bodyWidth = ((document.body.clientWidth - 45) * 0.01).toFixed(3);
+  console.log("this is the window width:", bodyWidth);
+  // console.log("this is the window width(80%):", bodyWidth80percent);
+  console.log("this is the window width * vw:", bodyWidth * vw);
+  return bodyWidth * vw;
 };
 
 // use value from slide to calculate the width outputDiv
@@ -84,6 +85,13 @@ const fitText = outputDiv => {
     }
   }
 };
+
+// call fitText on window resize
+window.addEventListener("resize", event => {
+  console.log("you resized the window");
+  setOutputDivWidth(slider.value);
+  fitText(outputDiv);
+});
 
 slider.addEventListener("change", event => {
   console.log("you have changed the slider");

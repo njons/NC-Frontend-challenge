@@ -25,6 +25,16 @@ body {
   text-transform: lowercase;
 }
 
+#container {
+  width: calc(100% - 20%);
+}
+
+#output__div:hover {
+  background-color: rgba(255, 0, 0, 0.2);
+  transform: translate(5px, 5px);
+  box-shadow: 0px 0px #333;
+}
+
 #output__div {
   height: 50px;
   width: calc(100% - 20%);
