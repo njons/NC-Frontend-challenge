@@ -68,6 +68,17 @@ const fitText = outputDiv => {
     currFontSize = (currFontSize * difference).toFixed(3);
     console.log("this is currFontSize after manipulation:", currFontSize);
     outputText.style.fontSize = currFontSize + "px";
+    if (currFontSize > 50) {
+      // check if the output div is bigger than the text
+      outputText.style.fontSize = "50px";
+      // save current font size in local storage
+      saveToLocalStorage("fontSize", 50);
+    } else if (currFontSize < 10) {
+      // check if the output div is bigger than the text
+      outputText.style.fontSize = "10px";
+      // save current font size in local storage
+      saveToLocalStorage("fontSize", 10);
+    }
   }
 };
 
