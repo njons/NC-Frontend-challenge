@@ -8,6 +8,11 @@
   background-color: orange;
 }
 
+#input__div {
+  display: flex;
+  flex-direction: row;
+}
+
 #input__text {
   font-size: 2rem;
   padding: 5px;
@@ -17,7 +22,7 @@
   width: 100%;
 }
 
-#input__text ::placeholder {
+#input__text::placeholder {
   color: 333;
 }
 
