@@ -96,6 +96,19 @@ window.addEventListener("resize", event => {
   fitText(outputDiv);
 });
 
+// if avaliable, get and apply the stored values on load
+window.addEventListener("load", event => {
+  if (!getFromLocalStorage("sliderValue") === "") {
+    slider.value = getFromLocalStorage("sliderValue");
+    outputDiv.style.width = getFromLocalStorage("outputDivWidth") + "px";
+    outputText.textContent = getFromLocalStorage("input");
+    outputText.style.fontSize = getFromLocalStorage("fontSize") + "px";
+  }
+  slider.value = 0.5;
+  setOutputDivWidth(slider.value);
+  fitText(outputDiv);
+});
+
 slider.addEventListener("change", event => {
   console.log("you have changed the slider");
   let sliderValue = slider.value;
@@ -115,10 +128,21 @@ inputDiv.addEventListener("keyup", event => {
   fitText(outputDiv);
 });
 
-// if avaliable, get and apply the stored values on load
-window.addEventListener("load", event => {
-  slider.value = getFromLocalStorage("sliderValue");
-  outputDiv.style.width = getFromLocalStorage("outputDivWidth") + "px";
-  outputText.textContent = getFromLocalStorage("input");
-  outputText.style.fontSize = getFromLocalStorage("fontSize") + "px";
+// clear all inputs and empty local storage
+clear.addEventListener("click", event => {
+  const clear = document.querySelector("#clear");
+  const outputText = outputDiv.querySelector("#output__text");
+  // prevent reloading the page
+  event.preventDefault();
+
+  // clear all inputs
+  outputText.textContent = "";
+  inputDiv.value = "";
+  inputDiv.placeholder = "Type text here...";
+
+  // clear all info stored in loal storage
+  saveToLocalStorage("input", "");
+  saveToLocalStorage("fontSize", "");
+  saveToLocalStorage("sliderValue", "");
+  saveToLocalStorage("outputDivWidth", "");
 });
