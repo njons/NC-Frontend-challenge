@@ -147,3 +147,18 @@ button {
 #slider {
   cursor: pointer;
 }
+
+datalist {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px 0 5px;
+}
+
+option {
+  font-weight: 700;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
