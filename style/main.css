@@ -1,10 +1,28 @@
 /* GENERIC STYLES  */
 body {
-  background-color: yellow;
   -webkit-font-smoothing: antialiased;
+  background-color: white;
   padding: 20px 20px 0 20px;
-  height: calc(100vh - 40px);
-  font-size: 14px;
+  height: calc(100vh - 20px);
+}
+
+input,
+button {
+  outline: none;
+  border: none;
+}
+
+section {
+  height: calc(50% - 20px);
+  /* padding: 10px 0; */
+}
+
+.container {
+  /* width: calc(100%);
+  display: flex;
+  flex-direction: column; */
+  margin: 10px 0;
+  height: 100%;
 }
 
 .font {
@@ -22,28 +40,98 @@ body {
 
 .reg {
   font-weight: 400;
-  text-transform: lowercase;
+  text-transform: none;
 }
 
-#container {
-  width: calc(100% - 20%);
+.badge {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+}
+
+.badge h2 {
+  color: #333;
+  margin: auto;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.center {
+  align-items: center;
+}
+
+.margin {
+  margin: 20px;
+}
+
+/* INPUT STYLES  */
+
+.input {
+  color: orange;
+  background-color: lightyellow;
+}
+
+.input .badge {
+  background-color: orange;
+}
+
+#input__text {
+  font-size: 2rem;
+  padding: 5px;
+  color: orange;
+  background-color: transparent;
+  border-bottom: orange 3px solid;
+  width: 100%;
+}
+
+#input__text ::placeholder {
+  color: 333;
+}
+
+button {
+  margin: 0 10px;
+  padding: 20px;
+  color: white;
+  background-color: orange;
+  border-radius: 5%;
+  justify-content: center;
+  /* height: 100px;
+  width: 200px; */
+  cursor: pointer;
+}
+
+/* OUTPUT STYLES  */
+
+.output {
+  color: red;
+  background-color: lightpink;
+}
+
+.output .badge {
+  background-color: red;
+}
+
+#output__div {
+  height: 50px;
+  border: solid 3px red;
+  border-radius: 50px;
+  display: flex;
+  box-shadow: 5px 5px #333;
+  transition: all 0.2s ease-in-out;
 }
 
 #output__div:hover {
   background-color: rgba(255, 0, 0, 0.2);
   transform: translate(5px, 5px);
   box-shadow: 0px 0px #333;
-}
-
-#output__div {
-  height: 50px;
-  width: calc(100% - 20%);
-  border: solid 3px red;
-  border-radius: 50px;
-  margin: 50px 0;
-  display: flex;
-  box-shadow: 5px 5px #333;
-  transition: all 0.2s ease-in-out;
 }
 
 #output__text {
@@ -54,4 +142,9 @@ body {
   white-space: nowrap;
   margin: auto;
   overflow: visible;
+}
+
+#slider__div {
+  display: inline-block;
+  margin-left: 25px;
 }

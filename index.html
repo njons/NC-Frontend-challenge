@@ -15,26 +15,33 @@
 
     <div class="container">
       <!-- INPUT -->
-      <section class="input font bold">
-        <div class="badge"><h2>1</h2></div>
-        <h2>Input here:</h2>
-        <div class="flex-row ">
-          <input id="input__text" class="font reg" type="text" placeholder="Type text here..." autocomplete="off" autofocus>
-          <button id="clear" class="font reg">Clear all</button>
+      <section class="input font bold flex-column">
+        <div class="flex-column">
+          <div class="flex-row center margin">
+            <div class="badge"><h2>1</h2></div>
+            <h2  class="input margin">Input here:</h2>
+          </div>
+          <div class="flex-row margin">
+              <input id="input__text" class="font reg" type="text" placeholder="Type text here..." autocomplete="off" autofocus>
+              <button id="clear" class="font reg">Clear all</button>
+          </div>
         </div>
-
       </section>
 
       <!-- OUTPUT -->
-      <section class="output font bold">
-        <div class="badge"><h2>2</h2></div>
-        <h2>Output here (in the form of a fake button why not?):</h2>
-        <div id="output__div">
-          <p id="output__text" class="font reg"></p>
-        </div>
-        <div id="slider__container" class="flex-column">
-          <h2>Set the button size with the slider</h2>
-          <input id="slider" type="range" value="0.5" name="slider"  step="0.1" min="0.5" max="1.0" list="tickmarks">
+      <section class="output font bold flex-column">
+        <div class="flex-column">
+          <div class="flex-row center margin">
+            <div class="badge"><h2>2</h2></div>
+            <h2 class="output margin">Output here (in the form of a fake button why not?):</h2>
+          </div>
+          <div id="output__div">
+            <p id="output__text" class="font reg"></p>
+          </div>
+          <div id="slider__div" class="margin">
+            <h2 class="output">Set the button size with the slider</h2>
+            <input id="slider" type="range" value="0.5" name="slider"  step="0.1" min="0.5" max="1.0" list="tickmarks">
+          </div>
         </div>
       </section>
     </div>
