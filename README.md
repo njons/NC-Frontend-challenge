@@ -60,6 +60,7 @@ Stack:
 > This solution would be used when you have a button with width/height restrictions set by designer, but the text length can be different depending on the language of the text.
 
 - The website can also be navigated using the keyboard
+- It has responsive design and a custom layout for the iPhone 5/5SE (width: 320px)
 
 ---
 
