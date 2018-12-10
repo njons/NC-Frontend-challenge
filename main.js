@@ -129,7 +129,7 @@ inputText.addEventListener("keyup", event => {
     // saveToLocalStorage("input", "");
   } else if (text) {
     inputText.placeholder = "";
-    iinputText.style.backgroundColor = "transparent";
+    inputText.style.backgroundColor = "transparent";
     // saveToLocalStorage("input", inputText);
     // set the input text in the output div
     outputText.textContent = text;
