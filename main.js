@@ -126,20 +126,17 @@ inputText.addEventListener("keyup", event => {
   if (text.length === 0) {
     inputText.placeholder = "Type something here...";
     inputText.style.backgroundColor = "yellow";
-    // saveToLocalStorage("input", "");
-  } else if (text) {
+    saveToLocalStorage("input", "");
+  } else {
     inputText.placeholder = "";
     inputText.style.backgroundColor = "transparent";
-    // saveToLocalStorage("input", inputText);
-    // set the input text in the output div
+    console.log("this is text:", text);
     outputText.textContent = text;
+    saveToLocalStorage("input", text);
+    setOutputDivWidth(slider.value);
+    // use text input to calculate the width of the output text
+    fitText(outputDiv);
   }
-  console.log("this is text:", text);
-  outputText.textContent = text;
-  saveToLocalStorage("input", text);
-  setOutputDivWidth(slider.value);
-  // use text input to calculate the width of the output text
-  fitText(outputDiv);
 });
 
 // clear all inputs and empty local storage
