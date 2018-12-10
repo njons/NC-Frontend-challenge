@@ -83,7 +83,9 @@ slider.addEventListener("change", event => {
 inputText.addEventListener("keyup", event => {
   event.preventDefault();
   let text = inputText.value;
-  if (text.length === 0) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+  } else if (text.length === 0) {
     inputText.placeholder = "Type something here...";
     inputText.style.backgroundColor = "yellow";
     saveToLocalStorage("input", "");
