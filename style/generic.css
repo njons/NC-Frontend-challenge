@@ -14,7 +14,10 @@ button {
 
 section {
   height: calc(50% - 20px);
-  /* padding: 10px 0; */
+}
+
+form {
+  width: 100%;
 }
 
 .container {
