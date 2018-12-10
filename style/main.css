@@ -11,6 +11,7 @@
 #input__div {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 #input__text {
