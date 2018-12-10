@@ -47,7 +47,9 @@ const setOutputDivWidth = sliderValue => {
 
 const fitText = outputDiv => {
   console.log("you have reached fitText");
+  // 20px padding inside the div to iniate the resizing earlier
   let outputDivWidth = getFromLocalStorage("outputDivWidth") - 20;
+  // 50px margin outside the text to iniate the resizing earlier
   let outputTextWidth = outputText.clientWidth + 50;
   // let fontSize = 50;
 
@@ -121,6 +123,17 @@ slider.addEventListener("change", event => {
 inputText.addEventListener("keyup", event => {
   console.log("you have keyed up");
   let text = inputText.value;
+  if (text.length === 0) {
+    inputText.placeholder = "Type something here...";
+    inputText.style.backgroundColor = "yellow";
+    // saveToLocalStorage("input", "");
+  } else if (text) {
+    inputText.placeholder = "";
+    iinputText.style.backgroundColor = "transparent";
+    // saveToLocalStorage("input", inputText);
+    // set the input text in the output div
+    outputText.textContent = text;
+  }
   console.log("this is text:", text);
   outputText.textContent = text;
   saveToLocalStorage("input", text);
