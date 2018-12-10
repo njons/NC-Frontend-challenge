@@ -21,24 +21,24 @@ const getFromLocalStorage = key => {
 
 // use window width and the value from slide to convert vw into px
 const convertVwToPx = vw => {
-  console.log("you have reached convertVwToPx");
-  console.log("this is the vw coming in :", vw);
+  // console.log("you have reached convertVwToPx");
+  // console.log("this is the vw coming in :", vw);
   // console.log("this is the window.innerWidth:", window.innerWidth);
   // deduct 45px to compensate for the 2 x 20px margin and 5px box shadow on button
   let bodyWidth = ((document.body.clientWidth - 45) * 0.01).toFixed(3);
-  console.log("this is the window width:", bodyWidth);
+  // console.log("this is the window width:", bodyWidth);
   // console.log("this is the window width(80%):", bodyWidth80percent);
-  console.log("this is the window width * vw:", bodyWidth * vw);
+  // console.log("this is the window width * vw:", bodyWidth * vw);
   return bodyWidth * vw;
 };
 
 // use value from slide to calculate the width outputDiv
 const setOutputDivWidth = sliderValue => {
-  console.log("you have reached setOutputDivWidth");
-  console.log("this is the slider value:", sliderValue);
+  // console.log("you have reached setOutputDivWidth");
+  // console.log("this is the slider value:", sliderValue);
   let calcWidth = convertVwToPx(100 * sliderValue);
-  console.log("this is the calcWidth value:", calcWidth);
-  console.log("this is the calcWidth value:", calcWidth);
+  // console.log("this is the calcWidth value:", calcWidth);
+  // console.log("this is the calcWidth value:", calcWidth);
   let outputDivWidth = calcWidth;
   outputDiv.style.width = outputDivWidth + "px";
   saveToLocalStorage("outputDivWidth", outputDivWidth);
@@ -46,34 +46,34 @@ const setOutputDivWidth = sliderValue => {
 };
 
 const fitText = outputDiv => {
-  console.log("you have reached fitText");
+  // console.log("you have reached fitText");
   // 20px padding inside the div to iniate the resizing earlier
   let outputDivWidth = getFromLocalStorage("outputDivWidth") - 20;
   // 50px margin outside the text to iniate the resizing earlier
   let outputTextWidth = outputText.clientWidth + 50;
   // let fontSize = 50;
 
-  console.log(
-    "this is the clientWidth of the button element :",
-    outputDivWidth
-  );
-  console.log(
-    "this is the clientWidth of the text element :",
-    outputText.clientWidth + 50
-  );
+  // console.log(
+  //   "this is the clientWidth of the button element :",
+  //   outputDivWidth
+  // );
+  // console.log(
+  //   "this is the clientWidth of the text element :",
+  //   outputText.clientWidth + 50
+  // );
 
   let difference = (outputDivWidth / outputTextWidth).toFixed(3);
   // console.log("this is the difference:", difference);
 
   if (difference) {
-    console.log("the text should be smaller");
+    // console.log("the text should be smaller");
     let currFontSize = parseFloat(
       window.getComputedStyle(outputText, null).getPropertyValue("font-size")
     );
     console.log("this is the currFontSize before manipulation:", currFontSize);
     // fontSize = currFontSize;
     currFontSize = (currFontSize * difference).toFixed(3);
-    console.log("this is currFontSize after manipulation:", currFontSize);
+    // console.log("this is currFontSize after manipulation:", currFontSize);
     outputText.style.fontSize = currFontSize + "px";
     // save current font size in local storage
     saveToLocalStorage("fontSize", currFontSize);
@@ -93,7 +93,7 @@ const fitText = outputDiv => {
 
 // call fitText on window resize
 window.addEventListener("resize", event => {
-  console.log("you resized the window");
+  // console.log("you resized the window");
   setOutputDivWidth(slider.value);
   fitText(outputDiv);
 });
@@ -105,7 +105,7 @@ window.addEventListener("load", event => {
   outputText.textContent = getFromLocalStorage("input");
   outputText.style.fontSize = getFromLocalStorage("fontSize") + "px";
   if (getFromLocalStorage("sliderValue") === "") {
-    console.log("its true!");
+    // console.log("its true!");
     slider.value = 0.5;
     setOutputDivWidth(slider.value);
     fitText(outputDiv);
@@ -113,7 +113,7 @@ window.addEventListener("load", event => {
 });
 
 slider.addEventListener("change", event => {
-  console.log("you have changed the slider");
+  // console.log("you have changed the slider");
   let sliderValue = slider.value;
   saveToLocalStorage("sliderValue", sliderValue);
   setOutputDivWidth(sliderValue);
@@ -121,11 +121,11 @@ slider.addEventListener("change", event => {
 });
 
 inputText.addEventListener("keyup", event => {
-  // event.preventDefault();
-  console.log("you have keyed up:", event);
+  event.preventDefault();
+  // console.log("you have keyed up:", event);
   let text = inputText.value;
   if (event.key === "Enter") {
-    console.log("you have pressed enter");
+    // console.log("you have pressed enter");
     event.preventDefault();
   } else if (text.length === 0) {
     inputText.placeholder = "Type something here...";
@@ -134,7 +134,7 @@ inputText.addEventListener("keyup", event => {
   } else {
     inputText.placeholder = "";
     inputText.style.backgroundColor = "transparent";
-    console.log("this is text:", text);
+    // console.log("this is text:", text);
     outputText.textContent = text;
     saveToLocalStorage("input", text);
     setOutputDivWidth(slider.value);
