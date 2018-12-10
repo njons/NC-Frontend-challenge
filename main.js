@@ -1,7 +1,6 @@
 const inputText = document.querySelector("#input__text");
 const outputDiv = document.querySelector("#output__div");
 const outputText = document.querySelector("#output__text");
-const slider = document.querySelector("#slider");
 
 // store values in local storage
 const saveToLocalStorage = (id, value) => {
